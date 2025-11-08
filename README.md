@@ -35,3 +35,65 @@ Format de base :
 
 # Concrètement en .Net 9
 
+- [ ] Ajouter le mécanisme de `Problem Details`: 
+
+```csharp
+// Adds services for using Problem Details format
+builder.Services.AddProblemDetails(options =>
+{
+  options.CustomizeProblemDetails = context =>
+  {
+    context.ProblemDetails.Instance =
+        $"{context.HttpContext.Request.Method} {context.HttpContext.Request.Path}";
+
+    context.ProblemDetails.Extensions.TryAdd("requestId", context.HttpContext.TraceIdentifier);
+
+    Activity? activity = context.HttpContext.Features.Get<IHttpActivityFeature>()?.Activity;
+    context.ProblemDetails.Extensions.TryAdd("traceId", activity?.Id);
+  };
+});
+```
+
+- [ ] Convertir les exceptions en `Problem Details`
+
+```csharp
+// Converts unhandled exceptions into Problem Details responses
+app.UseExceptionHandler();
+
+// Returns the Problem Details response for (empty) non-successful responses
+app.UseStatusCodePages();
+```
+
+- [ ] Personnaliser la conversion des exceptions en `Problem Details`
+
+```csharp
+public class CustomExceptionHandler(IProblemDetailsService problemDetailsService) : IExceptionHandler
+{
+  public async ValueTask<bool> TryHandleAsync(
+      HttpContext httpContext,
+      Exception exception,
+      CancellationToken cancellationToken)
+  {
+    var problemDetails = new ProblemDetails
+    {
+      Status = exception switch
+      {
+        ArgumentException => StatusCodes.Status400BadRequest,
+        _ => StatusCodes.Status500InternalServerError
+      },
+      Title = "An error occurred",
+      Type = exception.GetType().Name,
+      Detail = exception.Message
+    };
+
+    return await problemDetailsService.TryWriteAsync(new ProblemDetailsContext
+    {
+      Exception = exception,
+      HttpContext = httpContext,
+      ProblemDetails = problemDetails
+    });
+  }
+}
+```
+
+
