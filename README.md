@@ -14,9 +14,9 @@ La spécification sert à définir des formats d'erreur communs pour les applica
 
 ## Contenu
 
-Type de fichier : JSON
+Type de fichier : `JSON`
 
-Type de media : application/problem+json
+Type de media : `application/problem+json`
 
 Format de base : 
   - **type (URI)** : Identifie le type de problème spécifique avec un URI, permettant aux API HTTP d'utiliser des URI sous leur contrôle pour identifier des problèmes qui leur sont spécifiques ou de réutiliser des URI existants pour faciliter l'interopérabilité. 2 options possibles :
