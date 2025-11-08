@@ -54,16 +54,6 @@ builder.Services.AddProblemDetails(options =>
 });
 ```
 
-- [ ] Convertir les exceptions en `Problem Details`
-
-```csharp
-// Converts unhandled exceptions into Problem Details responses
-app.UseExceptionHandler();
-
-// Returns the Problem Details response for (empty) non-successful responses
-app.UseStatusCodePages();
-```
-
 - [ ] Personnaliser la conversion des exceptions en `Problem Details`
 
 ```csharp
@@ -96,4 +86,18 @@ public class CustomExceptionHandler(IProblemDetailsService problemDetailsService
 }
 ```
 
+- [ ] Ajouter la personnalisation des exceptions en `Problem Details`
 
+```csharp
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+```
+
+- [ ] Convertir les exceptions en `Problem Details`
+
+```csharp
+// Converts unhandled exceptions into Problem Details responses
+app.UseExceptionHandler();
+
+// Returns the Problem Details response for (empty) non-successful responses
+app.UseStatusCodePages();
+```
