@@ -19,7 +19,7 @@ Type de fichier : JSON
 Type de media : application/problem+json
 
 Format de base : 
-  - **type (URI)** : Identifie le type de problème spécifique avec un URI, permettant aux API HTTP d'utiliser des URI sous leur contrôle pour identifier des problèmes qui leur sont spécifiques ou de réutiliser des URI existants pour faciliter l'interopérabilité RFC Editor. 2 options possibles :
+  - **type (URI)** : Identifie le type de problème spécifique avec un URI, permettant aux API HTTP d'utiliser des URI sous leur contrôle pour identifier des problèmes qui leur sont spécifiques ou de réutiliser des URI existants pour faciliter l'interopérabilité. 2 options possibles :
     - URL déréférençable : Elle doit retourner de la documentation HTML
     - Tag URI : Simple identifiant unique, non déréférençable (ex: urn:problem-type:product-not-found)
   - **title (string)** : Un résumé court et lisible du type de problème
