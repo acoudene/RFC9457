@@ -25,13 +25,13 @@ Format de base :
   - **title (string)** : Un résumé court et lisible du type de problème
   - **status (number)** : Le code de statut HTTP généré par le serveur
   - **detail (string)** : Une explication détaillée spécifique à cette occurrence du problème
-  - **instance (URI)** : Une URI identifiant l'occurrence spécifique du problème, ce qui peut être utile à des fins de support ou de forensics RFC Editor
+  - **instance (URI)** : Une URI identifiant l'occurrence spécifique du problème, ce qui peut être utile à des fins de support ou de forensics
 
 ## Points importants
 
-Les détails de problème ne sont pas un outil de débogage pour l'implémentation sous-jacente ; il s'agit plutôt d'un moyen d'exposer plus de détails sur l'interface HTTP elle-même.
-Les URI de type doivent être stables dans le temps et sous le contrôle de l'organisation.
-Le format standard évite la nécessité de créer de nouveaux formats de réponse d'erreur pour chaque API.
+- Les détails de problème ne sont pas un outil de débogage pour l'implémentation sous-jacente ; il s'agit plutôt d'un moyen d'exposer plus de détails sur l'interface HTTP elle-même.
+- Les URI de type doivent être stables dans le temps et sous le contrôle de l'organisation.
+- Le format standard évite la nécessité de créer de nouveaux formats de réponse d'erreur pour chaque API.
 
 # Concrètement en .Net 9
 
