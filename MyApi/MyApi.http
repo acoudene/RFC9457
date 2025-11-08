@@ -4,3 +4,6 @@ GET {{MyApi_HostAddress}}/products
 Accept: application/json
 
 ###
+
+GET {{MyApi_HostAddress}}/products/error
+Accept: application/json
