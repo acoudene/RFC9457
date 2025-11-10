@@ -37,7 +37,11 @@ Format de base :
 
 Il peut être intéressant d'utiliser un portail web référençant les cas d'erreur avec une documentation.
 
-Exemple avec le cas d'un produit non trouvé : 
+Ici, le portail expose l'index des erreurs possibles :
+
+<img width="968" height="610" alt="image" src="https://github.com/user-attachments/assets/7031e92b-7297-4e1a-bb77-6de907ba31d9" />
+
+Et voici un exemple avec le cas d'un produit non trouvé : 
 
 <img width="298" height="912" alt="image" src="https://github.com/user-attachments/assets/7080d920-477c-47ae-98bc-83d3b750fd5c" />
 
