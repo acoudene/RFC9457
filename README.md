@@ -33,6 +33,15 @@ Format de base :
 - Les URI de type doivent être stables dans le temps et sous le contrôle de l'organisation.
 - Le format standard évite la nécessité de créer de nouveaux formats de réponse d'erreur pour chaque API.
 
+## Cas particulier du type déréférençable
+
+Il peut être intéressant d'utiliser un portail web référençant les cas d'erreur avec une documentation.
+
+Exemple avec le cas d'un produit non trouvé : 
+
+<img width="298" height="912" alt="image" src="https://github.com/user-attachments/assets/7080d920-477c-47ae-98bc-83d3b750fd5c" />
+
+
 # Concrètement en .Net 9
 
 - [ ] Ajouter le mécanisme de `Problem Details`: 
