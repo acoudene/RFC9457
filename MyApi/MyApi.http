@@ -1,9 +1,31 @@
-@MyApi_HostAddress = http://localhost:5059
+@MyApi_HostAddress = https://localhost:7229
 
 GET {{MyApi_HostAddress}}/products
 Accept: application/json
 
 ###
+# ERROR CASE WITHOUT DOC
 
 GET {{MyApi_HostAddress}}/products/error
 Accept: application/json
+
+###
+
+GET {{MyApi_HostAddress}}/products/1
+Accept: application/json
+
+###
+# ERROR CASE WITH DOC, open https://localhost:7229/errors/product-not-found
+
+GET {{MyApi_HostAddress}}/products/9999
+Accept: application/json
+
+### 
+# ERROR DOC: Product not found (use your browser)
+
+GET {{MyApi_HostAddress}}/errors/product-not-found
+
+### 
+# ERROR DOC: Validation error (use your browser)
+
+GET {{MyApi_HostAddress}}/errors/validation-error

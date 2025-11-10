@@ -12,8 +12,11 @@ public record CreateProductRequest(
 
 public static class EndpointsExtensions
 {
+  public const string BaseUrl = @"https://localhost:7229";
+  public const string ProductNotFoundType = $"{BaseUrl}/errors/product-not-found";
+  public const string ValidationErrorType = $"{BaseUrl}/errors/validation-error";
 
-  public static void MapEntityNameEndpoints(this IEndpointRouteBuilder app)
+  public static void MapProductEndpoints(this IEndpointRouteBuilder app)
   {
     var products = new List<Product>
     {
@@ -39,7 +42,7 @@ public static class EndpointsExtensions
             title: "Product not found",
             detail: $"No product found with ID {id}",
             statusCode: StatusCodes.Status404NotFound,
-            type: @"https://api.example.com/errors/product-not-found"
+            type: ProductNotFoundType
         );
       }
 
@@ -67,7 +70,7 @@ public static class EndpointsExtensions
             errors: validationErrors,
             title: "Validation failed",
             detail: "One or more validation errors occurred",
-            type: @"https://api.example.com/errors/validation-error"
+            type: ValidationErrorType
         );
       }
 
@@ -95,7 +98,7 @@ public static class EndpointsExtensions
             title: "Product not found",
             detail: $"Cannot update. No product found with ID {id}",
             statusCode: StatusCodes.Status404NotFound,
-            type: @"https://api.example.com/errors/product-not-found"
+            type: ProductNotFoundType
         );
       }
 
@@ -118,7 +121,7 @@ public static class EndpointsExtensions
             title: "Product not found",
             detail: $"Cannot delete. No product found with ID {id}",
             statusCode: StatusCodes.Status404NotFound,
-            type: @"https://api.example.com/errors/product-not-found"
+            type: ProductNotFoundType
         );
       }
 

@@ -37,6 +37,7 @@ if (app.Environment.IsDevelopment())
   app.MapOpenApi();
 }
 
-app.MapEntityNameEndpoints();
+app.MapProductEndpoints();
+app.MapErrorEndpoints();
 
 app.Run();
